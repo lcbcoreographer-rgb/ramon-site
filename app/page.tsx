@@ -6,16 +6,15 @@ import ProductCard from "@/components/ProductCard";
 import { getFeatured, formatBRL } from "@/data/products";
 
 const BRANDS = [
-  { icon: "🍎", name: "Apple"    },
-  { icon: "📱", name: "Samsung"  },
-  { icon: "🎧", name: "JBL"      },
-  { icon: "📱", name: "Motorola" },
-  { icon: "📱", name: "Xiaomi"   },
-  { icon: "🎵", name: "Sony"     },
-  { icon: "⚡", name: "Anker"    },
-  { icon: "📱", name: "Google"   },
-  { icon: "💻", name: "Lenovo"   },
-  { icon: "🎮", name: "Razer"    },
+  { logo: "/brands/apple.png",   name: "Apple"    },
+  { logo: "/brands/samsung.png", name: "Samsung"  },
+  { logo: "/brands/jbl.png",     name: "JBL"      },
+  { icon: "📱",                  name: "Motorola" },
+  { icon: "📱",                  name: "Xiaomi"   },
+  { logo: "/brands/sony.png",    name: "Sony"     },
+  { icon: "⚡",                  name: "Anker"    },
+  { icon: "📱",                  name: "Google"   },
+  { icon: "💻",                  name: "Lenovo"   },
 ];
 
 // ── Constants ────────────────────────────────────────────────────────────────
@@ -305,7 +304,12 @@ export default function Page() {
           <div className="brand-ticker-track">
             {[...BRANDS, ...BRANDS].map((b, i) => (
               <div key={i} className="brand-item">
-                <span style={{ fontSize: 16 }}>{b.icon}</span>
+                {"logo" in b
+                  ? <img src={b.logo} alt={b.name} style={{ height: 22, width: "auto", objectFit: "contain", filter: "grayscale(1)", opacity: .55, transition: "opacity .25s, filter .25s" }}
+                      onMouseEnter={e => { e.currentTarget.style.filter = "grayscale(0)"; e.currentTarget.style.opacity = "1"; }}
+                      onMouseLeave={e => { e.currentTarget.style.filter = "grayscale(1)"; e.currentTarget.style.opacity = ".55"; }} />
+                  : <span style={{ fontSize: 16 }}>{b.icon}</span>
+                }
                 <span>{b.name}</span>
               </div>
             ))}

@@ -38,7 +38,14 @@ export default function ProductCard({ product: p, index = 0 }: Props) {
       {/* Image */}
       <Link href={`/produto/${p.slug}`} style={{ display: "block", textDecoration: "none" }}>
         <div style={{ position: "relative", background: p.imageBg, height: 200, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-          {showImg ? (
+          {showImg && p.floatAnim ? (
+            <div className="float-phone-wrap">
+              <img src={p.image} alt={p.name}
+                className="float-phone-img"
+                onError={() => setImgFailed(true)} />
+              <div className="float-phone-shadow" />
+            </div>
+          ) : showImg ? (
             <img src={p.image} alt={p.name}
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
               onError={() => setImgFailed(true)} />

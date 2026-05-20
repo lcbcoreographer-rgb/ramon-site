@@ -139,10 +139,16 @@ export default function ProdutoPage() {
                 fontSize: 120, border: "1px solid rgba(255,255,255,.07)",
                 cursor: "default", transformStyle: "preserve-3d",
               }}>
-              {product.image
-                ? <img src={product.image} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 20 }} />
-                : <span style={{ filter: "drop-shadow(0 0 30px rgba(26,110,255,.3))" }}>{product.emoji}</span>
-              }
+              {product.image && product.floatAnim ? (
+                <div className="float-phone-wrap" style={{ padding: "24px 0 32px" }}>
+                  <img src={product.image} alt={product.name} className="float-phone-img" style={{ height: "78%" }} />
+                  <div className="float-phone-shadow" style={{ bottom: 20 }} />
+                </div>
+              ) : product.image ? (
+                <img src={product.image} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 20 }} />
+              ) : (
+                <span style={{ filter: "drop-shadow(0 0 30px rgba(26,110,255,.3))" }}>{product.emoji}</span>
+              )}
             </div>
 
             {/* Info */}

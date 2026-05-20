@@ -20,6 +20,7 @@ export interface Product {
   variants?: Variant[];
   tags: string[];
   badge?: "hot" | "new" | "sale";
+  floatAnim?: boolean;
 }
 
 export const CATEGORIES = [
@@ -40,8 +41,9 @@ export const PRODUCTS: Product[] = [
     description: "Chip A17 Pro, câmera 48MP com zoom óptico 3x, carcaça de titânio.",
     details: "Tela Super Retina XDR 6,1\". Chip A17 Pro. Câmera principal 48MP. Zoom óptico 3x. Dynamic Island. USB-C. iOS 17.",
     price: 7999, priceFrom: 8499,
-    emoji: "📱", imageBg: "linear-gradient(135deg,#030814 0%,#0D2A5E 100%)",
-    stock: 5, freeShipping: true, maxInstallments: 12, featured: true, badge: "hot",
+    emoji: "📱", imageBg: "linear-gradient(135deg,#EAF0FF 0%,#F5F8FF 100%)",
+    image: "/products/iphone-15-pro.png",
+    stock: 5, freeShipping: true, maxInstallments: 12, featured: true, badge: "hot", floatAnim: true,
     variants: [
       { name: "Cor", options: ["Titânio Natural","Titânio Azul","Titânio Branco","Titânio Preto"] },
       { name: "Armazenamento", options: ["128GB","256GB","512GB","1TB"] },

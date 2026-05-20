@@ -179,12 +179,14 @@ export default function Page() {
               onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,.65)")}>{l}</a>
           ))}
         </div>
-        <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa hide-mobile" style={{ fontSize: 13, padding: "10px 20px" }}>💬 WhatsApp</a>
-        <CartButton dark />
-        <button className="show-mobile" onClick={() => setMobileMenu(!mobileMenu)}
-          style={{ background: "none", border: "1px solid rgba(255,255,255,.12)", borderRadius: 8, padding: "8px 12px", cursor: "pointer", color: "#fff", fontSize: 18 }}>
-          {mobileMenu ? "✕" : "☰"}
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa hide-mobile" style={{ fontSize: 13, padding: "10px 20px" }}>💬 WhatsApp</a>
+          <CartButton dark />
+          <button className="show-mobile" onClick={() => setMobileMenu(!mobileMenu)}
+            style={{ background: "none", border: "1px solid rgba(255,255,255,.18)", borderRadius: 8, padding: "8px 12px", cursor: "pointer", color: "#fff", fontSize: 18, fontFamily: "inherit" }}>
+            {mobileMenu ? "✕" : "☰"}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

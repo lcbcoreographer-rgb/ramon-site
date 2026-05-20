@@ -9,7 +9,14 @@ export default function ProdutosPage() {
   const [activeCat, setActiveCat] = useState("todos");
   const [products, setProducts] = useState(PRODUCTS);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const handleCatChange = (catId: string) => {
+    setLoading(true);
+    setActiveCat(catId);
+    setTimeout(() => setLoading(false), 300);
+  };
 
   useEffect(() => {
     let list = getByCategory(activeCat);
@@ -98,7 +105,7 @@ export default function ProdutosPage() {
       <div style={{ position: "relative", zIndex: 1, padding: "0 0 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
           {CATEGORIES.map(cat => (
-            <button key={cat.id} onClick={() => setActiveCat(cat.id)}
+            <button key={cat.id} onClick={() => handleCatChange(cat.id)}
               className={`cat-tab${activeCat === cat.id ? " active" : ""}`}>
               {cat.icon} {cat.label}
             </button>
@@ -117,7 +124,22 @@ export default function ProdutosPage() {
       {/* Product grid */}
       <section style={{ padding: "8px 0 80px", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-          {products.length === 0 ? (
+          {loading ? (
+            <div className="grid-products">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className="skeleton-card">
+                  <div className="skeleton" style={{ height: 190 }} />
+                  <div style={{ padding: "14px 16px 18px" }}>
+                    <div className="skeleton" style={{ height: 10, width: "55%", marginBottom: 10 }} />
+                    <div className="skeleton" style={{ height: 14, width: "90%", marginBottom: 6 }} />
+                    <div className="skeleton" style={{ height: 12, width: "70%", marginBottom: 14 }} />
+                    <div className="skeleton" style={{ height: 20, width: "50%", marginBottom: 14 }} />
+                    <div className="skeleton" style={{ height: 38, borderRadius: 9 }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : products.length === 0 ? (
             <div style={{ textAlign: "center", padding: "80px 0", color: "var(--t3)" }}>
               <div style={{ fontSize: 52, marginBottom: 16 }}>🔍</div>
               <p style={{ fontSize: 16, fontWeight: 600 }}>Nenhum produto encontrado</p>

@@ -12,13 +12,14 @@ export interface Product {
   priceFrom?: number;
   emoji: string;
   imageBg: string;
-  image?: string;        // real image path when available
+  image?: string;
   stock: number;
   freeShipping: boolean;
   maxInstallments: number;
   featured: boolean;
   variants?: Variant[];
   tags: string[];
+  badge?: "hot" | "new" | "sale";
 }
 
 export const CATEGORIES = [
@@ -40,7 +41,7 @@ export const PRODUCTS: Product[] = [
     details: "Tela Super Retina XDR 6,1\". Chip A17 Pro. Câmera principal 48MP. Zoom óptico 3x. Dynamic Island. USB-C. iOS 17.",
     price: 7999, priceFrom: 8499,
     emoji: "📱", imageBg: "linear-gradient(135deg,#030814 0%,#0D2A5E 100%)",
-    stock: 5, freeShipping: true, maxInstallments: 12, featured: true,
+    stock: 5, freeShipping: true, maxInstallments: 12, featured: true, badge: "hot",
     variants: [
       { name: "Cor", options: ["Titânio Natural","Titânio Azul","Titânio Branco","Titânio Preto"] },
       { name: "Armazenamento", options: ["128GB","256GB","512GB","1TB"] },
@@ -82,7 +83,7 @@ export const PRODUCTS: Product[] = [
     details: "Tela Dynamic AMOLED 6,8\" 120Hz. Snapdragon 8 Gen 3. Câmera 200MP. Zoom óptico 10x. S Pen. 5G.",
     price: 7499, priceFrom: 7999,
     emoji: "📱", imageBg: "linear-gradient(135deg,#050D1C 0%,#0B2040 100%)",
-    stock: 4, freeShipping: true, maxInstallments: 12, featured: true,
+    stock: 4, freeShipping: true, maxInstallments: 12, featured: true, badge: "hot",
     variants: [
       { name: "Cor", options: ["Titanium Black","Titanium Gray","Titanium Violet","Titanium Yellow"] },
       { name: "Armazenamento", options: ["256GB","512GB","1TB"] },
@@ -136,7 +137,7 @@ export const PRODUCTS: Product[] = [
     details: "Áudio espacial personalizado com rastreamento dinâmico da cabeça. Chip H1. Resistência IPX4. Compatível com MagSafe.",
     price: 1199, priceFrom: 1299,
     emoji: "🎧", imageBg: "linear-gradient(135deg,#040C1E 0%,#0C2248 100%)",
-    stock: 6, freeShipping: true, maxInstallments: 6, featured: true,
+    stock: 6, freeShipping: true, maxInstallments: 6, featured: true, badge: "sale",
     tags: ["airpods","apple","fone","tws","sem-fio"],
   },
   {
@@ -202,7 +203,7 @@ export const PRODUCTS: Product[] = [
     details: "Potência 65W. Tecnologia GaN III. 2x USB-C + 1x USB-A. Compatível com iPhone, Samsung, notebooks.",
     price: 129, priceFrom: 159,
     emoji: "⚡", imageBg: "linear-gradient(135deg,#030810 0%,#071624 100%)",
-    stock: 18, freeShipping: false, maxInstallments: 3, featured: true,
+    stock: 18, freeShipping: false, maxInstallments: 3, featured: true, badge: "sale",
     tags: ["carregador","turbo","65w","gan","usb-c"],
   },
   {
@@ -259,7 +260,7 @@ export const PRODUCTS: Product[] = [
     details: "Motor 350W brushless. Bateria 36V 10Ah (removível). Autonomia até 60km. Freios a disco mecânico. Suspensão dianteira. Velocidade máx. 25km/h. Peso 22kg. Pneus 26\".",
     price: 3499, priceFrom: 3999,
     emoji: "⚡", imageBg: "linear-gradient(135deg,#020810 0%,#061020 100%)",
-    stock: 3, freeShipping: true, maxInstallments: 12, featured: true,
+    stock: 3, freeShipping: true, maxInstallments: 12, featured: true, badge: "new",
     variants: [{ name: "Cor", options: ["Preto","Azul","Cinza"] }],
     tags: ["bike","elétrica","urban","350w","mobilidade"],
   },

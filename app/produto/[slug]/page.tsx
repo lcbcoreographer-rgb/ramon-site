@@ -232,6 +232,28 @@ export default function ProdutoPage() {
                   <span style={{ fontSize: 12, color: "#4CAF50", fontWeight: 700 }}>✓ Em estoque</span>
                 )}
               </div>
+
+              {/* Stock progress bar */}
+              {product.stock > 0 && product.stock <= 25 && (
+                <div style={{ marginTop: 20 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "var(--t3)", marginBottom: 7 }}>
+                    <span>Disponibilidade em estoque</span>
+                    <span style={{ color: product.stock <= 5 ? "#FF9800" : "var(--t2)", fontWeight: 700 }}>
+                      {product.stock <= 3 ? "Crítico" : product.stock <= 8 ? "Baixo" : "Normal"} · {product.stock} un.
+                    </span>
+                  </div>
+                  <div className="stock-bar">
+                    <div className="stock-bar-fill" style={{
+                      width: `${Math.min((product.stock / 25) * 100, 100)}%`,
+                      background: product.stock <= 3
+                        ? "linear-gradient(90deg, #FF5722, #FF9800)"
+                        : product.stock <= 8
+                        ? "linear-gradient(90deg, #FF9800, #FFC107)"
+                        : "linear-gradient(90deg, var(--blue), var(--blue-lt))",
+                    }} />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -242,6 +264,49 @@ export default function ProdutoPage() {
             <div className="reveal" style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(255,255,255,.06)", borderRadius: 14, padding: "24px 28px" }}>
               <p style={{ fontSize: 14, color: "var(--t2)", lineHeight: 2 }}>{product.details}</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section style={{ padding: "0 0 60px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24, flexWrap: "wrap", gap: 12 }}>
+            <h2 className="reveal" style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-.03em" }}>
+              Avaliações dos clientes
+            </h2>
+            <div className="reveal" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ display: "flex", gap: 3 }}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i} style={{ color: "#FFC107", fontSize: 18 }}>★</span>
+                ))}
+              </div>
+              <span style={{ fontSize: 14, fontWeight: 800, color: "#fff" }}>5.0</span>
+              <span style={{ fontSize: 12, color: "var(--t3)" }}>(128 avaliações)</span>
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }} className="review-grid">
+            {[
+              { name: "João S.", city: "São Paulo, SP", rating: 5, text: "Produto excelente! Chegou antes do prazo, embalagem perfeita. Super recomendo a loja — atendimento rápido e transparente.", date: "há 2 dias" },
+              { name: "Maria L.", city: "Rio de Janeiro, RJ", rating: 5, text: "Fiquei impressionada com a qualidade e a velocidade da entrega. O produto é idêntico ao descrito. Voltarei a comprar!", date: "há 5 dias" },
+              { name: "Carlos M.", city: "Belo Horizonte, MG", rating: 5, text: "Atendimento incrível do início ao fim. Me ajudaram a escolher o produto certo para minha necessidade. Parabéns!", date: "há 1 semana" },
+            ].map((r, i) => (
+              <div key={i} className={`review-card reveal reveal-d${i + 1}`}>
+                <div style={{ display: "flex", gap: 3, marginBottom: 10 }}>
+                  {Array.from({ length: r.rating }).map((_, j) => (
+                    <span key={j} style={{ color: "#FFC107", fontSize: 14 }}>★</span>
+                  ))}
+                </div>
+                <p style={{ fontSize: 13, color: "var(--t2)", lineHeight: 1.7, marginBottom: 14 }}>&ldquo;{r.text}&rdquo;</p>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div>
+                    <div style={{ fontSize: 12, fontWeight: 800, color: "#fff" }}>{r.name}</div>
+                    <div style={{ fontSize: 11, color: "var(--t3)" }}>{r.city}</div>
+                  </div>
+                  <span style={{ fontSize: 11, color: "var(--t3)" }}>{r.date}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

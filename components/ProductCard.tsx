@@ -42,11 +42,15 @@ export default function ProductCard({ product: p, index = 0 }: Props) {
           ) : (
             <span style={{ fontSize: 64 }}>{p.emoji}</span>
           )}
-          {discount && (
-            <span style={{ position: "absolute", top: 10, left: 10, background: "#e53935", color: "#fff", fontSize: 11, fontWeight: 800, borderRadius: 6, padding: "3px 8px" }}>
+          {p.badge ? (
+            <span className={`prod-badge ${p.badge === "hot" ? "prod-badge-hot" : p.badge === "new" ? "prod-badge-new" : "prod-badge-sale"}`}>
+              {p.badge === "hot" ? "🔥 Mais vendido" : p.badge === "new" ? "✨ Novo" : discount ? `-${discount}% OFF` : "🏷 Oferta"}
+            </span>
+          ) : discount ? (
+            <span style={{ position: "absolute", top: 10, left: 10, background: "#e53935", color: "#fff", fontSize: 11, fontWeight: 800, borderRadius: 6, padding: "3px 8px", zIndex: 3 }}>
               -{discount}%
             </span>
-          )}
+          ) : null}
           {p.freeShipping && (
             <span style={{ position: "absolute", top: 10, right: 10, background: "rgba(26,110,255,.85)", color: "#fff", fontSize: 10, fontWeight: 700, borderRadius: 6, padding: "3px 8px" }}>
               Frete grátis

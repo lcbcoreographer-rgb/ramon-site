@@ -3,7 +3,20 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import CartButton from "@/components/CartButton";
 import ProductCard from "@/components/ProductCard";
-import { getFeatured } from "@/data/products";
+import { getFeatured, formatBRL } from "@/data/products";
+
+const BRANDS = [
+  { icon: "🍎", name: "Apple"    },
+  { icon: "📱", name: "Samsung"  },
+  { icon: "🎧", name: "JBL"      },
+  { icon: "📱", name: "Motorola" },
+  { icon: "📱", name: "Xiaomi"   },
+  { icon: "🎵", name: "Sony"     },
+  { icon: "⚡", name: "Anker"    },
+  { icon: "📱", name: "Google"   },
+  { icon: "💻", name: "Lenovo"   },
+  { icon: "🎮", name: "Razer"    },
+];
 
 // ── Constants ────────────────────────────────────────────────────────────────
 const WA      = "5500000000000"; // TODO: substituir pelo número real
@@ -80,6 +93,21 @@ export default function Page() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    // ── Animated counters ──────────────────────────────
+    const timer = setTimeout(() => {
+      document.querySelectorAll<HTMLElement>(".counter-num").forEach(el => {
+        const target = Number(el.dataset.target);
+        const dur = 1800;
+        const t0 = Date.now();
+        const tick = () => {
+          const p = Math.min((Date.now() - t0) / dur, 1);
+          el.textContent = String(Math.floor((1 - Math.pow(1 - p, 3)) * target));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, 700);
+
     // ── Custom cursor ──────────────────────────────────
     const dot  = dotRef.current;
     const ring = ringRef.current;
@@ -122,7 +150,7 @@ export default function Page() {
       });
     }
 
-    return () => { obs.disconnect(); window.removeEventListener("scroll", onScroll); };
+    return () => { obs.disconnect(); window.removeEventListener("scroll", onScroll); clearTimeout(timer); };
   }, []);
 
   return (
@@ -175,47 +203,117 @@ export default function Page() {
       )}
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section className="hero-wrap" style={{ paddingTop: 160, paddingBottom: 100, textAlign: "center", position: "relative", zIndex: 1 }}>
-        <div className="hero-section" style={{ maxWidth: 860, margin: "0 auto", padding: "0 24px" }}>
-          <div className="badge fade-up" style={{ marginBottom: 28 }}>
-            <span className="badge-dot" /> Celulares · Acessórios · Bikes Elétricas
-          </div>
-          <h1 className="fade-up d1" style={{ fontSize: "clamp(38px, 7vw, 72px)", fontWeight: 900, lineHeight: 1.08, marginBottom: 24 }}>
-            Tecnologia, acessórios<br />
-            <span className="blue-text">e inovação em um só lugar</span>
-          </h1>
-          <p className="fade-up d2" style={{ fontSize: 18, color: "var(--t2)", lineHeight: 1.7, maxWidth: 580, margin: "0 auto 40px", fontWeight: 400 }}>
-            Na Ramon Acessórios você encontra celulares, acessórios, películas, fones, bikes elétricas e muito mais com atendimento rápido e personalizado.
-          </p>
-          <div className="fade-up d3" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">💬 Chamar no WhatsApp</a>
-            <a href="#categorias" className="btn-ghost">Ver produtos ↓</a>
-          </div>
+      <section style={{ paddingTop: 100, paddingBottom: 80, position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
+          <div className="hero-section hero-grid">
 
-          {/* Hero stats */}
-          <div className="fade-up d4" style={{ marginTop: 64, position: "relative" }}>
-            <div style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(255,255,255,.07)", borderRadius: 20, padding: "28px 32px", maxWidth: 620, margin: "0 auto", backdropFilter: "blur(10px)" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-                <span style={{ fontSize: 12, fontWeight: 700, color: "var(--t3)", letterSpacing: ".06em", textTransform: "uppercase" }}>Nossos números</span>
-                <span style={{ fontSize: 11, background: "rgba(26,110,255,.1)", color: "var(--blue-lt)", border: "1px solid rgba(26,110,255,.2)", borderRadius: 99, padding: "3px 10px", fontWeight: 700 }}>● Loja ativa</span>
+            {/* Left: text */}
+            <div>
+              <div className="badge fade-up" style={{ marginBottom: 24 }}>
+                <span className="badge-dot" /> Celulares · Acessórios · Bikes Elétricas
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+              <h1 className="fade-up d1" style={{ fontSize: "clamp(36px, 5.5vw, 66px)", fontWeight: 900, lineHeight: 1.05, marginBottom: 22 }}>
+                A melhor loja<br />de <span className="blue-text">tecnologia</span><br />da região
+              </h1>
+              <p className="fade-up d2" style={{ fontSize: 17, color: "var(--t2)", lineHeight: 1.75, marginBottom: 36, maxWidth: 460 }}>
+                Celulares, acessórios, películas, fones e bikes elétricas com atendimento rápido e personalizado.
+              </p>
+              <div className="fade-up d3" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">💬 WhatsApp</a>
+                <Link href="/produtos" className="btn-ghost">Ver catálogo →</Link>
+              </div>
+
+              {/* Inline animated stats */}
+              <div className="fade-up d4" style={{ display: "flex", gap: 36, marginTop: 44, paddingTop: 28, borderTop: "1px solid rgba(255,255,255,.06)", flexWrap: "wrap" }}>
                 {[
-                  { v: "500+",  l: "clientes atendidos" },
-                  { v: "1.000+", l: "produtos disponíveis" },
-                  { v: "5★",    l: "avaliação no Google" },
+                  { target: 500,  suffix: "+", label: "clientes"  },
+                  { target: 1000, suffix: "+", label: "produtos"  },
+                  { target: 5,    suffix: "★", label: "avaliação" },
                 ].map(s => (
-                  <div key={s.l} style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: 28, fontWeight: 900, color: "var(--blue-lt)", letterSpacing: "-.03em", lineHeight: 1 }}>{s.v}</div>
-                    <div style={{ fontSize: 11, color: "var(--t2)", marginTop: 6, fontWeight: 500 }}>{s.l}</div>
+                  <div key={s.label}>
+                    <div style={{ fontSize: 26, fontWeight: 900, color: "var(--blue-lt)", lineHeight: 1, letterSpacing: "-.04em" }}>
+                      <span className="counter-num" data-target={s.target}>0</span>{s.suffix}
+                    </div>
+                    <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 5, fontWeight: 600 }}>{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div style={{ position: "absolute", bottom: -40, left: "50%", transform: "translateX(-50%)", width: 400, height: 60, background: "var(--blue)", filter: "blur(60px)", opacity: .1, pointerEvents: "none" }} />
+
+            {/* Right: phone mockup */}
+            <div className="fade-up d2 hide-mobile" style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+              {/* Outer glow */}
+              <div style={{ position: "absolute", inset: -80, background: "radial-gradient(circle, rgba(26,110,255,.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+
+              {/* Phone frame */}
+              <div style={{
+                width: 260, height: 520, borderRadius: 42,
+                border: "1.5px solid rgba(26,110,255,.22)",
+                background: "linear-gradient(160deg, rgba(10,18,48,.92) 0%, rgba(4,6,16,.97) 100%)",
+                backdropFilter: "blur(20px)",
+                boxShadow: "0 0 0 1px rgba(255,255,255,.04), 0 40px 80px rgba(0,0,0,.7), 0 0 80px rgba(26,110,255,.1)",
+                display: "flex", flexDirection: "column",
+                padding: "58px 18px 32px", gap: 10, overflow: "hidden", position: "relative",
+              }}>
+                {/* Notch */}
+                <div style={{ position: "absolute", top: 12, left: "50%", transform: "translateX(-50%)", width: 70, height: 22, background: "rgba(255,255,255,.07)", borderRadius: 99 }} />
+                {/* Status */}
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+                  <span style={{ fontSize: 9, fontWeight: 800, color: "var(--blue-lt)", letterSpacing: ".08em" }}>RAMON</span>
+                  <span style={{ fontSize: 9, color: "var(--t3)" }}>🔋 98%</span>
+                </div>
+                {/* Search bar */}
+                <div style={{ background: "rgba(255,255,255,.06)", borderRadius: 9, padding: "7px 11px", fontSize: 10, color: "var(--t3)", border: "1px solid rgba(255,255,255,.04)", marginBottom: 6 }}>
+                  🔍 Buscar produto...
+                </div>
+                {/* Product cards inside */}
+                {getFeatured().slice(0, 4).map((p, i) => (
+                  <div key={p.id} style={{
+                    background: "rgba(255,255,255,.045)",
+                    borderRadius: 10, padding: "9px 11px",
+                    display: "flex", gap: 9, alignItems: "center",
+                    border: "1px solid rgba(255,255,255,.05)",
+                    animation: `${i % 2 === 0 ? "float-a" : "float-b"} ${3 + i * 0.6}s ease-in-out infinite`,
+                  }}>
+                    <div style={{ width: 34, height: 34, borderRadius: 8, background: p.imageBg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>
+                      {p.emoji}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, color: "#fff", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.name}</div>
+                      <div style={{ fontSize: 10, color: "var(--blue-lt)", fontWeight: 800, marginTop: 1 }}>{formatBRL(p.price)}</div>
+                    </div>
+                    <div style={{ fontSize: 10, background: "rgba(26,110,255,.15)", color: "var(--blue-lt)", borderRadius: 6, padding: "3px 7px", fontWeight: 800, flexShrink: 0 }}>+</div>
+                  </div>
+                ))}
+                {/* Inner glow */}
+                <div style={{ position: "absolute", bottom: -30, left: "50%", transform: "translateX(-50%)", width: 180, height: 180, background: "var(--blue)", filter: "blur(60px)", opacity: .07, pointerEvents: "none" }} />
+              </div>
+
+              {/* Floating trust badges */}
+              <div style={{ position: "absolute", top: 70, right: -20, background: "rgba(76,175,80,.1)", border: "1px solid rgba(76,175,80,.25)", borderRadius: 10, padding: "8px 12px", fontSize: 11, fontWeight: 700, color: "#4CAF50", backdropFilter: "blur(12px)", animation: "float-a 4s ease-in-out infinite", zIndex: 2, whiteSpace: "nowrap" }}>
+                ✓ Frete grátis
+              </div>
+              <div style={{ position: "absolute", bottom: 140, left: -28, background: "rgba(26,110,255,.1)", border: "1px solid rgba(26,110,255,.25)", borderRadius: 10, padding: "8px 12px", fontSize: 11, fontWeight: 700, color: "var(--blue-lt)", backdropFilter: "blur(12px)", animation: "float-b 5s ease-in-out infinite", zIndex: 2, whiteSpace: "nowrap" }}>
+                🔒 Compra segura
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ── BRAND TICKER ────────────────────────────────── */}
+      <div style={{ background: "rgba(255,255,255,.012)", borderTop: "1px solid rgba(255,255,255,.04)", borderBottom: "1px solid rgba(255,255,255,.04)", padding: "18px 0", position: "relative", zIndex: 1 }}>
+        <div className="brand-ticker-wrap">
+          <div className="brand-ticker-track">
+            {[...BRANDS, ...BRANDS].map((b, i) => (
+              <div key={i} className="brand-item">
+                <span style={{ fontSize: 16 }}>{b.icon}</span>
+                <span>{b.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── CATEGORIES ──────────────────────────────────── */}
       <section id="categorias" style={{ padding: "80px 0", position: "relative", zIndex: 1 }}>

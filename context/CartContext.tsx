@@ -50,6 +50,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return [...prev, { product: p, quantity: 1, variant }];
     });
     setOpen(true);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("cart:added", { detail: { name: p.name } }));
+    }
   }, []);
 
   const removeItem = useCallback((id: string, variant?: string) => {

@@ -179,10 +179,10 @@ h3 { letter-spacing: -.02em; }
   display: flex; align-items: center; justify-content: center; font-size: 52px;
 }
 
-/* ── Cursor — white gloved hand ─────────────────────── */
+/* ── Cursor — hand click icon ────────────────────────── */
 @media (pointer: fine) {
-  body { cursor: url('/cursor-hand.svg') 13 1, pointer; }
-  a, button { cursor: url('/cursor-hand.svg') 13 1, pointer; }
+  body    { cursor: url('/cursor.png') 40 8, pointer; }
+  a, button { cursor: url('/cursor.png') 40 8, pointer; }
 }
 .cursor-dot { display: none; }
 .cursor-ring {

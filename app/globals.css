@@ -455,8 +455,13 @@ body::after {
   body::after   { display: none; }
   .glass-card:hover { transform: none; }
 
-  /* Sobre grid → coluna única */
+  /* Sobre grid → coluna única no mobile */
   .sobre-grid   { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* Seções — padding reduzido no mobile */
+  .hero-wrap-section { padding-top: 84px !important; padding-bottom: 48px !important; }
+  section[id="categorias"], section[id="produtos"], section[id="diferenciais"] { padding: 40px 0 !important; }
+  section[id="sobre"] { padding: 40px 24px 32px !important; }
 
   /* Toast → não transbordar em telas pequenas */
   .toast-container { right: 12px; left: 12px; }
@@ -465,11 +470,8 @@ body::after {
   /* Brand ticker menor no mobile */
   .brand-ticker-track { gap: 40px; }
 
-  /* Botão WA flutuante — menor e mais para cima no mobile */
+  /* Botão WA flutuante — menor no mobile */
   .floating-wa { width: 48px; height: 48px; font-size: 22px; bottom: 16px; right: 16px; }
-
-  /* Checkout layout já tem media mas reforça */
-  .checkout-layout { gap: 24px; }
 
   /* Formulário mobile */
   .form-card { padding: 18px 16px; }

@@ -37,11 +37,11 @@ export default function Navbar() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <CartButton dark />
           <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
             className="btn-wa hide-mobile" style={{ fontSize: 13, padding: "10px 20px" }}>
             💬 WhatsApp
           </a>
+          <CartButton dark />
           <button className="show-mobile" onClick={() => setMobileMenu(v => !v)}
             style={{ background: "none", border: "1px solid rgba(255,255,255,.18)", borderRadius: 8, padding: "8px 12px", cursor: "pointer", color: "#fff", fontSize: 18, fontFamily: "inherit" }}>
             {mobileMenu ? "✕" : "☰"}

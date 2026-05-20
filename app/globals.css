@@ -68,17 +68,17 @@ h3 { letter-spacing: -.02em; }
 
 /* ── Glass card ─────────────────────────────────────── */
 .glass-card {
-  background: linear-gradient(145deg, #F2F6FF 0%, #E8F0FF 60%, #EEF3FF 100%);
-  border: 1px solid rgba(26,110,255,.12);
+  background: linear-gradient(145deg, #dce8ff 0%, #c8daff 55%, #d4e3ff 100%);
+  border: 1px solid rgba(26,110,255,.22);
   border-radius: 16px;
-  box-shadow: 0 1px 4px rgba(26,110,255,.06), 0 6px 24px rgba(26,110,255,.06);
+  box-shadow: 0 2px 8px rgba(26,110,255,.1), 0 8px 32px rgba(26,110,255,.08);
   transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s;
   position: relative; overflow: hidden;
   transform-style: preserve-3d; will-change: transform;
 }
 .glass-card:hover {
-  border-color: rgba(26,110,255,.35);
-  box-shadow: 0 12px 48px rgba(26,110,255,.16), 0 2px 10px rgba(26,110,255,.08);
+  border-color: rgba(26,110,255,.45);
+  box-shadow: 0 16px 56px rgba(26,110,255,.2), 0 4px 12px rgba(26,110,255,.12);
 }
 
 /* ── Buttons ────────────────────────────────────────── */
@@ -313,9 +313,9 @@ body::after {
 /* ── Card shimmer ───────────────────────────────────── */
 .glass-card::before {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+  background: linear-gradient(105deg, transparent 25%, rgba(255,255,255,.7) 50%, transparent 75%);
   background-size: 200% 100%; background-position: -100% 0;
-  transition: background-position .65s ease; pointer-events: none; border-radius: inherit; z-index: 0;
+  transition: background-position .6s ease; pointer-events: none; border-radius: inherit; z-index: 0;
 }
 .glass-card:hover::before { background-position: 200% 0; }
 

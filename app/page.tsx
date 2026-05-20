@@ -167,15 +167,15 @@ export default function Page() {
       </div>
 
       {/* ── NAV ─────────────────────────────────────────── */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(244,246,255,.94)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(0,0,0,.07)" }} className="nav-wrap">
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(8,8,16,.97)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,.06)", boxShadow: "0 2px 24px rgba(0,0,0,.25)" }} className="nav-wrap">
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 52, width: "auto", objectFit: "contain" }} />
         </div>
         <div className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[["Produtos","#produtos"],["Categorias","#categorias"],["Diferenciais","#diferenciais"],["Sobre","#sobre"]].map(([l, h]) => (
-            <a key={l} href={h} style={{ fontSize: 13, fontWeight: 500, color: "var(--t2)", textDecoration: "none", transition: "color .15s" }}
+            <a key={l} href={h} style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,.65)", textDecoration: "none", transition: "color .15s" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
-              onMouseLeave={e => (e.currentTarget.style.color = "var(--t2)")}>{l}</a>
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,.65)")}>{l}</a>
           ))}
         </div>
         <CartButton style={{ marginRight: 4 }} />
@@ -188,10 +188,10 @@ export default function Page() {
 
       {/* Mobile menu */}
       {mobileMenu && (
-        <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(244,246,255,.98)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(0,0,0,.07)", padding: "24px 24px 32px", display: "flex", flexDirection: "column", gap: 0 }}>
+        <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(8,8,16,.99)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,.06)", padding: "24px 24px 32px", display: "flex", flexDirection: "column", gap: 0 }}>
           {[["Produtos","#produtos"],["Categorias","#categorias"],["Diferenciais","#diferenciais"],["Sobre","#sobre"]].map(([l, h]) => (
             <a key={l} href={h} onClick={() => setMobileMenu(false)}
-              style={{ fontSize: 16, fontWeight: 600, color: "var(--t2)", textDecoration: "none", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,.05)" }}>{l}</a>
+              style={{ fontSize: 16, fontWeight: 600, color: "rgba(255,255,255,.7)", textDecoration: "none", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,.07)" }}>{l}</a>
           ))}
           <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" onClick={() => setMobileMenu(false)} style={{ marginTop: 20, justifyContent: "center" }}>
             💬 Chamar no WhatsApp

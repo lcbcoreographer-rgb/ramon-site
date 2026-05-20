@@ -305,12 +305,11 @@ export default function Page() {
             {[...BRANDS, ...BRANDS].map((b, i) => (
               <div key={i} className="brand-item">
                 {"logo" in b
-                  ? <img src={b.logo} alt={b.name} style={{ height: 22, width: "auto", objectFit: "contain", filter: "grayscale(1)", opacity: .55, transition: "opacity .25s, filter .25s" }}
+                  ? <img src={b.logo} alt={b.name} style={{ height: 38, width: "auto", maxWidth: 100, objectFit: "contain", filter: "grayscale(1)", opacity: .5, transition: "opacity .25s, filter .25s" }}
                       onMouseEnter={e => { e.currentTarget.style.filter = "grayscale(0)"; e.currentTarget.style.opacity = "1"; }}
-                      onMouseLeave={e => { e.currentTarget.style.filter = "grayscale(1)"; e.currentTarget.style.opacity = ".55"; }} />
-                  : <span style={{ fontSize: 16 }}>{b.icon}</span>
+                      onMouseLeave={e => { e.currentTarget.style.filter = "grayscale(1)"; e.currentTarget.style.opacity = ".5"; }} />
+                  : <span style={{ fontSize: 22 }}>{b.icon}</span>
                 }
-                <span>{b.name}</span>
               </div>
             ))}
           </div>

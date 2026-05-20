@@ -382,7 +382,7 @@ export default function Page() {
       </section>
 
       {/* ── GRADIENTE TRANSIÇÃO branco → preto ─────────── */}
-      <div style={{ height: 100, background: "linear-gradient(to bottom, var(--bg) 0%, #080810 100%)", position: "relative", zIndex: 1 }} />
+      <div style={{ height: 220, background: "linear-gradient(to bottom, var(--bg) 0%, #0d0d18 60%, #080810 100%)", position: "relative", zIndex: 1 }} />
 
       {/* ── SOBRE + CTA + FOOTER (fundo preto) ─────────── */}
       <div style={{ background: "#080810", position: "relative", zIndex: 1 }}>

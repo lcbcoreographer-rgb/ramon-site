@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import CartButton from "./CartButton";
 
-const WA      = "5500000000000";
+const WA      = "554192660832";
 const WA_LINK = `https://wa.me/${WA}?text=Olá! Vim pelo site e quero saber sobre os produtos.`;
 
 const NAV_LINKS: [string, string][] = [

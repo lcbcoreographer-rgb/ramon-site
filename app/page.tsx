@@ -19,9 +19,9 @@ const BRANDS = [
 ];
 
 // ── Constants ────────────────────────────────────────────────────────────────
-const WA      = "5500000000000"; // TODO: substituir pelo número real
+const WA      = "554192660832";
 const WA_LINK = `https://wa.me/${WA}?text=Olá! Vim pelo site e quero saber sobre os produtos.`;
-const IG_LINK = "https://instagram.com/ramon_acessorios"; // TODO: substituir
+const IG_LINK = "https://www.instagram.com/ramonacessoriosparacelular/";
 
 const HOME_CATEGORIES = [
   { icon: "📱", title: "Celulares",          desc: "iPhones, Samsung, Motorola e muito mais com garantia e procedência." },

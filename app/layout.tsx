@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   icons: { icon: "/logo.png", apple: "/logo.png" },
 };
 
-const WA_LINK = "https://wa.me/5500000000000?text=Olá! Vim pelo site e quero saber sobre os produtos.";
+const WA_LINK = "https://wa.me/554192660832?text=Olá! Vim pelo site e quero saber sobre os produtos.";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

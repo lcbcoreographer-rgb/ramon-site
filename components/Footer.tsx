@@ -1,7 +1,7 @@
 "use client";
-const WA      = "5500000000000";
+const WA      = "554192660832";
 const WA_LINK = `https://wa.me/${WA}?text=Olá! Vim pelo site e quero saber sobre os produtos.`;
-const IG_LINK = "https://instagram.com/ramon_acessorios";
+const IG_LINK = "https://www.instagram.com/ramonacessoriosparacelular/";
 
 export default function Footer() {
   return (

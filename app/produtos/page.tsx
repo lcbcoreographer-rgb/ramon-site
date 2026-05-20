@@ -100,19 +100,21 @@ export default function ProdutosPage() {
       {/* Filters */}
       <div style={{ position: "relative", zIndex: 1, padding: "0 0 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
-          {CATEGORIES.map(cat => (
-            <button key={cat.id} onClick={() => handleCatChange(cat.id)}
-              className={`cat-tab${activeCat === cat.id ? " active" : ""}`}>
-              {cat.icon} {cat.label}
-            </button>
-          ))}
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", flex: 1 }}>
+            {CATEGORIES.map(cat => (
+              <button key={cat.id} onClick={() => handleCatChange(cat.id)}
+                className={`cat-tab${activeCat === cat.id ? " active" : ""}`}>
+                {cat.icon} {cat.label}
+              </button>
+            ))}
+          </div>
           <input
             type="text"
             placeholder="Buscar produto..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="form-input"
-            style={{ marginLeft: "auto", width: 200, padding: "8px 14px", fontSize: 13 }}
+            style={{ width: "min(200px, 100%)", padding: "8px 14px", fontSize: 13, flexShrink: 0 }}
           />
         </div>
       </div>

@@ -201,7 +201,7 @@ export default function Page() {
       )}
 
       {/* ── HERO ────────────────────────────────────────── */}
-      <section style={{ paddingTop: 100, paddingBottom: 80, position: "relative", zIndex: 1 }}>
+      <section style={{ paddingTop: "clamp(84px,10vw,110px)", paddingBottom: "clamp(48px,8vw,80px)", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
           <div className="hero-section hero-grid">
 
@@ -213,7 +213,7 @@ export default function Page() {
               <h1 className="fade-up d1" style={{ fontSize: "clamp(36px, 5.5vw, 66px)", fontWeight: 900, lineHeight: 1.05, marginBottom: 22 }}>
                 A melhor loja<br />de <span className="blue-text">tecnologia</span><br />da região
               </h1>
-              <p className="fade-up d2" style={{ fontSize: 17, color: "var(--t2)", lineHeight: 1.75, marginBottom: 36, maxWidth: 460 }}>
+              <p className="fade-up d2" style={{ fontSize: "clamp(14px,3.5vw,17px)", color: "var(--t2)", lineHeight: 1.75, marginBottom: 36, maxWidth: 460 }}>
                 Celulares, acessórios, películas, fones e bikes elétricas com atendimento rápido e personalizado.
               </p>
               <div className="fade-up d3" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -305,7 +305,7 @@ export default function Page() {
       </div>
 
       {/* ── CATEGORIES ──────────────────────────────────── */}
-      <section id="categorias" style={{ padding: "80px 0", position: "relative", zIndex: 1 }}>
+      <section id="categorias" style={{ padding: "clamp(40px,8vw,80px) 0", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: 56 }}>
             <div className="badge" style={{ marginBottom: 20 }}>Categorias</div>
@@ -336,7 +336,7 @@ export default function Page() {
       <div className="divider" style={{ margin: "0 48px" }} />
 
       {/* ── FEATURED PRODUCTS ───────────────────────────── */}
-      <section id="produtos" style={{ padding: "80px 0", position: "relative", zIndex: 1 }}>
+      <section id="produtos" style={{ padding: "clamp(40px,8vw,80px) 0", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: 56 }}>
             <div className="badge" style={{ marginBottom: 20 }}>Destaques</div>
@@ -361,7 +361,7 @@ export default function Page() {
       </section>
 
       {/* ── DIFERENCIAIS ────────────────────────────────── */}
-      <section id="diferenciais" style={{ padding: "80px 0", position: "relative", zIndex: 1 }}>
+      <section id="diferenciais" style={{ padding: "clamp(40px,8vw,80px) 0", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
           <div className="reveal" style={{ textAlign: "center", marginBottom: 56 }}>
             <div className="badge" style={{ marginBottom: 20 }}>Por que a Ramon?</div>
@@ -395,9 +395,9 @@ export default function Page() {
         <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "var(--blue)", filter: "blur(160px)", opacity: .05, top: 0, left: "50%", transform: "translateX(-50%)", pointerEvents: "none" }} />
 
         {/* ── SOBRE */}
-        <section id="sobre" style={{ padding: "80px 24px 60px", position: "relative" }}>
+        <section id="sobre" style={{ padding: "clamp(40px,8vw,80px) 24px clamp(32px,6vw,60px)", position: "relative" }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
-            <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+            <div className="reveal sobre-grid">
               <div>
                 <div className="badge" style={{ marginBottom: 20, background: "rgba(26,110,255,.1)", borderColor: "rgba(26,110,255,.25)", color: "var(--blue-lt)" }}>Sobre a Ramon</div>
                 <h2 style={{ fontSize: "clamp(26px,4vw,40px)", fontWeight: 900, lineHeight: 1.15, marginBottom: 16, color: "#fff" }}>

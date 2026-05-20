@@ -435,20 +435,45 @@ body::after {
   align-items: center; justify-content: center; gap: 6px;
 }
 
+/* ── Sobre grid ─────────────────────────────────────── */
+.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
 /* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hide-mobile  { display: none !important; }
   .show-mobile  { display: flex !important; }
-  .nav-wrap     { padding: 0 16px; }
+  .nav-wrap     { padding: 0 16px; height: 60px; }
   .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 12px; }
   .grid-2       { grid-template-columns: 1fr; }
   .stats-grid   { grid-template-columns: 1fr; }
   .stat-item    { padding: 14px 0; border-right: none !important; border-bottom: 1px solid rgba(0,0,0,.06); }
   .stat-item:last-child { border-bottom: none; }
   .footer-flex  { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .cta-box      { padding: 32px 20px !important; border-radius: 14px; }
+  .cta-box      { padding: 28px 18px !important; border-radius: 14px; }
   .hero-section { will-change: auto !important; }
   .cursor-dot, .cursor-ring { display: none; }
   body::after   { display: none; }
   .glass-card:hover { transform: none; }
+
+  /* Sobre grid → coluna única */
+  .sobre-grid   { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* Toast → não transbordar em telas pequenas */
+  .toast-container { right: 12px; left: 12px; }
+  .toast { min-width: auto; width: 100%; }
+
+  /* Brand ticker menor no mobile */
+  .brand-ticker-track { gap: 40px; }
+
+  /* Botão WA flutuante — menor e mais para cima no mobile */
+  .floating-wa { width: 48px; height: 48px; font-size: 22px; bottom: 16px; right: 16px; }
+
+  /* Checkout layout já tem media mas reforça */
+  .checkout-layout { gap: 24px; }
+
+  /* Formulário mobile */
+  .form-card { padding: 18px 16px; }
+
+  /* Produto detalhe */
+  .product-detail-grid { gap: 24px; }
 }

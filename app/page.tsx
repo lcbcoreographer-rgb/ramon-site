@@ -221,7 +221,7 @@ export default function Page() {
               </div>
 
               {/* Inline animated stats */}
-              <div className="fade-up d4" style={{ display: "flex", gap: 36, marginTop: 44, paddingTop: 28, borderTop: "1px solid rgba(255,255,255,.06)", flexWrap: "wrap" }}>
+              <div className="fade-up d4" style={{ display: "flex", gap: 36, marginTop: 44, paddingTop: 28, borderTop: "1px solid rgba(0,0,0,.08)", flexWrap: "wrap" }}>
                 {[
                   { target: 500,  suffix: "+", label: "clientes"  },
                   { target: 1000, suffix: "+", label: "produtos"  },
@@ -237,61 +237,57 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Right: phone mockup */}
-            <div className="fade-up d2 hide-mobile" style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-              {/* Outer glow */}
-              <div style={{ position: "absolute", inset: -80, background: "radial-gradient(circle, rgba(26,110,255,.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+            {/* Right: iPhone real flutuando */}
+            <div className="fade-up d2 hide-mobile" style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: 520 }}>
 
-              {/* Phone frame */}
-              <div style={{
-                width: 260, height: 520, borderRadius: 42,
-                border: "1.5px solid rgba(26,110,255,.22)",
-                background: "linear-gradient(160deg, rgba(10,18,48,.92) 0%, rgba(4,6,16,.97) 100%)",
-                backdropFilter: "blur(20px)",
-                boxShadow: "0 0 0 1px rgba(255,255,255,.04), 0 40px 80px rgba(0,0,0,.7), 0 0 80px rgba(26,110,255,.1)",
-                display: "flex", flexDirection: "column",
-                padding: "58px 18px 32px", gap: 10, overflow: "hidden", position: "relative",
-              }}>
-                {/* Notch */}
-                <div style={{ position: "absolute", top: 12, left: "50%", transform: "translateX(-50%)", width: 70, height: 22, background: "rgba(255,255,255,.07)", borderRadius: 99 }} />
-                {/* Status */}
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-                  <span style={{ fontSize: 9, fontWeight: 800, color: "var(--blue-lt)", letterSpacing: ".08em" }}>RAMON</span>
-                  <span style={{ fontSize: 9, color: "var(--t3)" }}>🔋 98%</span>
-                </div>
-                {/* Search bar */}
-                <div style={{ background: "rgba(255,255,255,.06)", borderRadius: 9, padding: "7px 11px", fontSize: 10, color: "var(--t3)", border: "1px solid rgba(255,255,255,.04)", marginBottom: 6 }}>
-                  🔍 Buscar produto...
-                </div>
-                {/* Product cards inside */}
-                {getFeatured().slice(0, 4).map((p, i) => (
-                  <div key={p.id} style={{
-                    background: "rgba(255,255,255,.045)",
-                    borderRadius: 10, padding: "9px 11px",
-                    display: "flex", gap: 9, alignItems: "center",
-                    border: "1px solid rgba(255,255,255,.05)",
-                    animation: `${i % 2 === 0 ? "float-a" : "float-b"} ${3 + i * 0.6}s ease-in-out infinite`,
-                  }}>
-                    <div style={{ width: 34, height: 34, borderRadius: 8, background: p.imageBg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>
-                      {p.emoji}
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: 10, fontWeight: 700, color: "#fff", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.name}</div>
-                      <div style={{ fontSize: 10, color: "var(--blue-lt)", fontWeight: 800, marginTop: 1 }}>{formatBRL(p.price)}</div>
-                    </div>
-                    <div style={{ fontSize: 10, background: "rgba(26,110,255,.15)", color: "var(--blue-lt)", borderRadius: 6, padding: "3px 7px", fontWeight: 800, flexShrink: 0 }}>+</div>
-                  </div>
-                ))}
-                {/* Inner glow */}
-                <div style={{ position: "absolute", bottom: -30, left: "50%", transform: "translateX(-50%)", width: 180, height: 180, background: "var(--blue)", filter: "blur(60px)", opacity: .07, pointerEvents: "none" }} />
+              {/* Glow de fundo */}
+              <div style={{ position: "absolute", inset: -60, background: "radial-gradient(circle, rgba(26,110,255,.14) 0%, transparent 70%)", pointerEvents: "none" }} />
+
+              {/* iPhone + sombra */}
+              <div className="float-phone-wrap" style={{ width: 280, height: 500 }}>
+                <img
+                  src="/products/iphone-15-pro.png"
+                  alt="iPhone 15 Pro"
+                  className="float-phone-img"
+                  style={{ height: "90%", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.22)) drop-shadow(0 8px 16px rgba(26,110,255,.12))" }}
+                />
+                <div className="float-phone-shadow" style={{ width: "50%", bottom: 14 }} />
               </div>
 
-              {/* Floating trust badges */}
-              <div style={{ position: "absolute", top: 70, right: -20, background: "rgba(76,175,80,.1)", border: "1px solid rgba(76,175,80,.25)", borderRadius: 10, padding: "8px 12px", fontSize: 11, fontWeight: 700, color: "#4CAF50", backdropFilter: "blur(12px)", animation: "float-a 4s ease-in-out infinite", zIndex: 2, whiteSpace: "nowrap" }}>
+              {/* Badge: Frete grátis */}
+              <div style={{
+                position: "absolute", top: 60, right: -10,
+                background: "rgba(255,255,255,.85)", backdropFilter: "blur(12px)",
+                border: "1px solid rgba(76,175,80,.3)", borderRadius: 12,
+                padding: "10px 16px", fontSize: 12, fontWeight: 800, color: "#2E7D32",
+                boxShadow: "0 4px 20px rgba(0,0,0,.1)",
+                animation: "float-a 4s ease-in-out infinite", zIndex: 2, whiteSpace: "nowrap",
+              }}>
                 ✓ Frete grátis
               </div>
-              <div style={{ position: "absolute", bottom: 140, left: -28, background: "rgba(26,110,255,.1)", border: "1px solid rgba(26,110,255,.25)", borderRadius: 10, padding: "8px 12px", fontSize: 11, fontWeight: 700, color: "var(--blue-lt)", backdropFilter: "blur(12px)", animation: "float-b 5s ease-in-out infinite", zIndex: 2, whiteSpace: "nowrap" }}>
+
+              {/* Badge: Compra segura */}
+              <div style={{
+                position: "absolute", bottom: 120, left: -24,
+                background: "rgba(255,255,255,.85)", backdropFilter: "blur(12px)",
+                border: "1px solid rgba(26,110,255,.25)", borderRadius: 12,
+                padding: "10px 16px", fontSize: 12, fontWeight: 800, color: "#0D4BC4",
+                boxShadow: "0 4px 20px rgba(0,0,0,.1)",
+                animation: "float-b 5s ease-in-out infinite", zIndex: 2, whiteSpace: "nowrap",
+              }}>
                 🔒 Compra segura
+              </div>
+
+              {/* Badge: Parcele em 12x */}
+              <div style={{
+                position: "absolute", bottom: 60, right: -10,
+                background: "rgba(255,255,255,.85)", backdropFilter: "blur(12px)",
+                border: "1px solid rgba(26,110,255,.2)", borderRadius: 12,
+                padding: "10px 16px", fontSize: 12, fontWeight: 800, color: "#0D4BC4",
+                boxShadow: "0 4px 20px rgba(0,0,0,.1)",
+                animation: "float-a 6s ease-in-out infinite 1s", zIndex: 2, whiteSpace: "nowrap",
+              }}>
+                💳 12x sem juros
               </div>
             </div>
           </div>

@@ -236,7 +236,7 @@ body::after {
 
 /* ── Brand ticker ───────────────────────────────────── */
 .brand-ticker-wrap { overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
-.brand-ticker-track { display: flex; gap: 64px; width: max-content; animation: brand-tick 24s linear infinite; align-items: center; }
+.brand-ticker-track { display: flex; gap: 72px; width: max-content; animation: brand-tick 26s linear infinite; align-items: center; }
 .brand-ticker-track:hover { animation-play-state: paused; }
 .brand-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; opacity: .4; transition: opacity .25s; font-size: 12px; font-weight: 800; color: var(--t2); letter-spacing: .07em; text-transform: uppercase; cursor: default; }
 .brand-item:hover { opacity: .85; }

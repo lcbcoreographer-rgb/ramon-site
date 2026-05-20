@@ -8,7 +8,7 @@ export default function Footer() {
     <footer style={{ borderTop: "1px solid rgba(0,0,0,.07)", padding: "40px 24px", position: "relative", zIndex: 1, background: "var(--bg2)" }}>
       <div className="footer-flex">
         <div>
-          <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 32, width: "auto", objectFit: "contain", marginBottom: 10 }} />
+          <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 48, width: "auto", objectFit: "contain", marginBottom: 10 }} />
           <p style={{ fontSize: 12, color: "var(--t3)", maxWidth: 280, lineHeight: 1.6 }}>
             Tecnologia, acessórios e bikes elétricas para o seu dia a dia.
           </p>

@@ -169,7 +169,7 @@ export default function Page() {
       {/* ── NAV ─────────────────────────────────────────── */}
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(244,246,255,.94)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(0,0,0,.07)" }} className="nav-wrap">
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 36, width: "auto", objectFit: "contain" }} />
+          <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 52, width: "auto", objectFit: "contain" }} />
         </div>
         <div className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[["Produtos","#produtos"],["Categorias","#categorias"],["Diferenciais","#diferenciais"],["Sobre","#sobre"]].map(([l, h]) => (
@@ -305,7 +305,7 @@ export default function Page() {
             {[...BRANDS, ...BRANDS].map((b, i) => (
               <div key={i} className="brand-item">
                 {"logo" in b
-                  ? <img src={b.logo} alt={b.name} style={{ height: 38, width: "auto", maxWidth: 100, objectFit: "contain", filter: "grayscale(1)", opacity: .5, transition: "opacity .25s, filter .25s" }}
+                  ? <img src={b.logo} alt={b.name} style={{ height: 54, width: "auto", maxWidth: 130, objectFit: "contain", filter: "grayscale(1)", opacity: .5, transition: "opacity .25s, filter .25s" }}
                       onMouseEnter={e => { e.currentTarget.style.filter = "grayscale(0)"; e.currentTarget.style.opacity = "1"; }}
                       onMouseLeave={e => { e.currentTarget.style.filter = "grayscale(1)"; e.currentTarget.style.opacity = ".5"; }} />
                   : <span style={{ fontSize: 22 }}>{b.icon}</span>
@@ -450,7 +450,7 @@ export default function Page() {
       <footer style={{ borderTop: "1px solid rgba(255,255,255,.05)", padding: "40px 24px", position: "relative", zIndex: 1 }}>
         <div className="footer-flex">
           <div>
-            <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 32, width: "auto", objectFit: "contain", marginBottom: 10 }} />
+            <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 48, width: "auto", objectFit: "contain", marginBottom: 10 }} />
             <p style={{ fontSize: 12, color: "var(--t3)", maxWidth: 280, lineHeight: 1.6 }}>Tecnologia, acessórios e bikes elétricas para o seu dia a dia.</p>
           </div>
           <div style={{ display: "flex", gap: 28, flexWrap: "wrap", alignItems: "center" }}>

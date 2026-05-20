@@ -22,7 +22,7 @@ export default function Navbar() {
         borderBottom: "1px solid rgba(0,0,0,.07)",
       }} className="nav-wrap">
         <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 36, width: "auto", objectFit: "contain" }} />
+          <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 52, width: "auto", objectFit: "contain" }} />
         </Link>
 
         <div className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 32 }}>

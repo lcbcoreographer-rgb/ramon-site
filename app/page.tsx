@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import CartButton from "@/components/CartButton";
 import ProductCard from "@/components/ProductCard";
+import HeroPhone from "@/components/HeroPhone";
 import { getFeatured, formatBRL } from "@/data/products";
 
 const BRANDS = [
@@ -243,15 +244,7 @@ export default function Page() {
               {/* Glow de fundo */}
               <div style={{ position: "absolute", inset: -60, background: "radial-gradient(circle, rgba(26,110,255,.14) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-              {/* iPhone 3D girando */}
-              <div style={{ width: 280, height: 500, position: "relative", display: "flex", alignItems: "center", justifyContent: "center", perspective: "900px" }}>
-                <img
-                  src="/products/iphone-15-pro.png"
-                  alt="iPhone 15 Pro"
-                  className="hero-phone-img"
-                />
-                <div className="hero-phone-shadow" />
-              </div>
+              <HeroPhone />
 
               {/* Badge: Frete grátis */}
               <div style={{
@@ -388,79 +381,95 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── SOBRE ───────────────────────────────────────── */}
-      <section id="sobre" style={{ padding: "80px 24px", position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
-            <div>
-              <div className="badge" style={{ marginBottom: 20 }}>Sobre a Ramon</div>
-              <h2 style={{ fontSize: "clamp(26px,4vw,40px)", fontWeight: 900, lineHeight: 1.15, marginBottom: 16 }}>
-                Sua loja de<br /><span className="blue-text">tecnologia de confiança</span>
-              </h2>
-              <p style={{ fontSize: 14, color: "var(--t2)", lineHeight: 1.8, marginBottom: 28 }}>
-                A Ramon Acessórios para Celulares é uma loja focada em tecnologia, praticidade e atendimento de qualidade. Trabalhamos com acessórios, celulares, películas, fones e bikes elétricas para facilitar o dia a dia dos nossos clientes.
-              </p>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">Falar com a Ramon →</a>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              {[
-                { num: "01", t: "Qualidade garantida",    d: "Trabalhamos apenas com produtos de procedência e qualidade comprovada." },
-                { num: "02", t: "Atendimento humano",     d: "Equipe real, pronta para tirar suas dúvidas com atenção." },
-                { num: "03", t: "Variedade completa",     d: "Do celular ao acessório, temos tudo em um único lugar." },
-              ].map((item, i) => (
-                <div key={i} style={{ display: "flex", gap: 14 }}>
-                  <div style={{ width: 36, height: 36, borderRadius: 9, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,110,255,.08)", border: "1px solid rgba(26,110,255,.2)", fontSize: 10, fontWeight: 900, color: "var(--blue-lt)" }}>{item.num}</div>
-                  <div>
-                    <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 3 }}>{item.t}</div>
-                    <p style={{ fontSize: 12, color: "var(--t2)", lineHeight: 1.6 }}>{item.d}</p>
+      {/* ── GRADIENTE TRANSIÇÃO branco → preto ─────────── */}
+      <div style={{ height: 100, background: "linear-gradient(to bottom, var(--bg) 0%, #080810 100%)", position: "relative", zIndex: 1 }} />
+
+      {/* ── SOBRE + CTA + FOOTER (fundo preto) ─────────── */}
+      <div style={{ background: "#080810", position: "relative", zIndex: 1 }}>
+
+        {/* Orb de fundo */}
+        <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "var(--blue)", filter: "blur(160px)", opacity: .05, top: 0, left: "50%", transform: "translateX(-50%)", pointerEvents: "none" }} />
+
+        {/* ── SOBRE */}
+        <section id="sobre" style={{ padding: "80px 24px 60px", position: "relative" }}>
+          <div style={{ maxWidth: 900, margin: "0 auto" }}>
+            <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+              <div>
+                <div className="badge" style={{ marginBottom: 20, background: "rgba(26,110,255,.1)", borderColor: "rgba(26,110,255,.25)", color: "var(--blue-lt)" }}>Sobre a Ramon</div>
+                <h2 style={{ fontSize: "clamp(26px,4vw,40px)", fontWeight: 900, lineHeight: 1.15, marginBottom: 16, color: "#fff" }}>
+                  Sua loja de<br /><span className="blue-text">tecnologia de confiança</span>
+                </h2>
+                <p style={{ fontSize: 14, color: "rgba(255,255,255,.55)", lineHeight: 1.85, marginBottom: 28 }}>
+                  A Ramon Acessórios é uma loja focada em tecnologia, praticidade e atendimento de qualidade. Celulares, películas, fones, acessórios e bikes elétricas para facilitar o seu dia a dia.
+                </p>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">💬 Falar com a Ramon</a>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {[
+                  { num: "01", t: "Qualidade garantida",  d: "Trabalhamos apenas com produtos de procedência e qualidade comprovada." },
+                  { num: "02", t: "Atendimento humano",   d: "Equipe real, pronta para tirar suas dúvidas com atenção e cuidado." },
+                  { num: "03", t: "Variedade completa",   d: "Do celular ao acessório, temos tudo em um único lugar." },
+                ].map((item, i) => (
+                  <div key={i} className={`reveal reveal-d${i + 1}`} style={{ display: "flex", gap: 14, padding: "16px 18px", background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.07)", borderRadius: 14 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 9, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(26,110,255,.15)", border: "1px solid rgba(26,110,255,.3)", fontSize: 10, fontWeight: 900, color: "var(--blue-lt)" }}>{item.num}</div>
+                    <div>
+                      <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 4, color: "#fff" }}>{item.t}</div>
+                      <p style={{ fontSize: 12, color: "rgba(255,255,255,.45)", lineHeight: 1.65 }}>{item.d}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── CTA WHATSAPP ────────────────────────────────── */}
-      <section style={{ padding: "80px 24px 100px", position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
-          <div className="reveal cta-box" style={{ background: "rgba(26,110,255,.04)", border: "1px solid rgba(26,110,255,.15)", position: "relative", overflow: "hidden", boxShadow: "0 4px 40px rgba(26,110,255,.08)" }}>
-            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center top, rgba(26,110,255,.1) 0%, transparent 70%)", pointerEvents: "none" }} />
-            <div className="badge" style={{ marginBottom: 24 }}>Fale com a gente</div>
-            <h2 style={{ fontSize: "clamp(24px,5vw,44px)", fontWeight: 900, lineHeight: 1.1, marginBottom: 16 }}>
-              Quer saber se temos<br /><span className="blue-text">o produto que você procura?</span>
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--t2)", lineHeight: 1.7, marginBottom: 36 }}>
-              Fale agora com a equipe da Ramon e consulte preços, modelos disponíveis e promoções da semana.
-            </p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ fontSize: 16, padding: "18px 40px" }}>
-              💬 Falar com a Ramon no WhatsApp
-            </a>
-            <p style={{ marginTop: 20, fontSize: 12, color: "var(--t3)" }}>Respondemos em poucos minutos · Sem compromisso</p>
+        {/* ── CTA WHATSAPP */}
+        <section style={{ padding: "40px 24px 80px", position: "relative" }}>
+          <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
+            <div className="reveal cta-box" style={{ background: "rgba(26,110,255,.06)", border: "1px solid rgba(26,110,255,.2)", position: "relative", overflow: "hidden", boxShadow: "0 0 80px rgba(26,110,255,.1)" }}>
+              <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center top, rgba(26,110,255,.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+              <div className="badge" style={{ marginBottom: 24, background: "rgba(26,110,255,.12)", borderColor: "rgba(26,110,255,.25)", color: "var(--blue-lt)" }}>Fale com a gente</div>
+              <h2 style={{ fontSize: "clamp(24px,5vw,44px)", fontWeight: 900, lineHeight: 1.1, marginBottom: 16, color: "#fff" }}>
+                Quer saber se temos<br /><span className="blue-text">o produto que você procura?</span>
+              </h2>
+              <p style={{ fontSize: 16, color: "rgba(255,255,255,.55)", lineHeight: 1.7, marginBottom: 36 }}>
+                Fale agora com a equipe da Ramon e consulte preços, modelos disponíveis e promoções da semana.
+              </p>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ fontSize: 16, padding: "18px 40px" }}>
+                💬 Falar com a Ramon no WhatsApp
+              </a>
+              <p style={{ marginTop: 20, fontSize: 12, color: "rgba(255,255,255,.3)" }}>Respondemos em poucos minutos · Sem compromisso</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── FOOTER ──────────────────────────────────────── */}
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,.05)", padding: "40px 24px", position: "relative", zIndex: 1 }}>
-        <div className="footer-flex">
-          <div>
-            <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 48, width: "auto", objectFit: "contain", marginBottom: 10 }} />
-            <p style={{ fontSize: 12, color: "var(--t3)", maxWidth: 280, lineHeight: 1.6 }}>Tecnologia, acessórios e bikes elétricas para o seu dia a dia.</p>
+        {/* ── FOOTER */}
+        <footer style={{ borderTop: "1px solid rgba(255,255,255,.07)", padding: "48px 24px 36px" }}>
+          <div className="footer-flex">
+            <div>
+              <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 48, width: "auto", objectFit: "contain", marginBottom: 12 }} />
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,.35)", maxWidth: 280, lineHeight: 1.7 }}>Tecnologia, acessórios e bikes elétricas para o seu dia a dia.</p>
+            </div>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa" style={{ fontSize: 13, padding: "11px 20px" }}>💬 WhatsApp</a>
+              <a href={IG_LINK} target="_blank" rel="noopener noreferrer"
+                style={{ fontSize: 13, color: "rgba(255,255,255,.55)", textDecoration: "none", fontWeight: 600, padding: "11px 18px", border: "1px solid rgba(255,255,255,.15)", borderRadius: 10, transition: "all .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,.4)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,.55)"; e.currentTarget.style.borderColor = "rgba(255,255,255,.15)"; }}>
+                📸 Instagram
+              </a>
+              <a href="/produtos"
+                style={{ fontSize: 13, color: "rgba(255,255,255,.55)", textDecoration: "none", fontWeight: 600, padding: "11px 18px", border: "1px solid rgba(255,255,255,.15)", borderRadius: 10, transition: "all .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,.4)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,.55)"; e.currentTarget.style.borderColor = "rgba(255,255,255,.15)"; }}>
+                🛍️ Produtos
+              </a>
+            </div>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,.3)" }}>© {new Date().getFullYear()} Ramon Acessórios. Todos os direitos reservados.</p>
           </div>
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap", alignItems: "center" }}>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
-              style={{ fontSize: 13, color: "var(--t2)", textDecoration: "none", fontWeight: 600, transition: "color .15s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#25D366")}
-              onMouseLeave={e => (e.currentTarget.style.color = "var(--t2)")}>💬 WhatsApp</a>
-            <a href={IG_LINK} target="_blank" rel="noopener noreferrer"
-              style={{ fontSize: 13, color: "var(--t2)", textDecoration: "none", fontWeight: 600, transition: "color .15s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "var(--blue-lt)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "var(--t2)")}>📸 Instagram</a>
-          </div>
-          <p style={{ fontSize: 12, color: "var(--t3)" }}>© {new Date().getFullYear()} Ramon Acessórios. Todos os direitos reservados.</p>
-        </div>
-      </footer>
+        </footer>
+
+      </div>{/* fim bloco preto */}
     </>
   );
 }

@@ -44,17 +44,14 @@ export default function ProdutosPage() {
   }, [products]);
 
   // Cursor
-  const dotRef  = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const dot  = dotRef.current;
     const ring = ringRef.current;
-    if (!dot || !ring || !window.matchMedia("(pointer: fine)").matches) return;
+    if (!ring || !window.matchMedia("(pointer: fine)").matches) return;
     let mx = 0, my = 0, rx = 0, ry = 0, vis = false;
     const onMove = (e: MouseEvent) => {
       mx = e.clientX; my = e.clientY;
-      if (!vis) { dot.style.opacity = "1"; ring.style.opacity = "1"; vis = true; }
-      dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+      if (!vis) { ring.style.opacity = "1"; vis = true; }
     };
     const expand = () => ring.classList.add("cursor-expand");
     const shrink = () => ring.classList.remove("cursor-expand");
@@ -73,7 +70,6 @@ export default function ProdutosPage() {
 
   return (
     <>
-      <div ref={dotRef}  className="cursor-dot"  />
       <div ref={ringRef} className="cursor-ring" />
       <div className="scroll-progress-bar" />
 

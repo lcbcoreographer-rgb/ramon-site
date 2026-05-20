@@ -108,15 +108,13 @@ export default function Page() {
       });
     }, 700);
 
-    // ── Custom cursor ──────────────────────────────────
-    const dot  = dotRef.current;
+    // ── Cursor ring (hand cursor = CSS, ring = JS) ────
     const ring = ringRef.current;
-    if (dot && ring && window.matchMedia("(pointer: fine)").matches) {
+    if (ring && window.matchMedia("(pointer: fine)").matches) {
       let mx = 0, my = 0, rx = 0, ry = 0, vis = false;
       const onMove = (e: MouseEvent) => {
         mx = e.clientX; my = e.clientY;
-        if (!vis) { dot.style.opacity = "1"; ring.style.opacity = "1"; vis = true; }
-        dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+        if (!vis) { ring.style.opacity = "1"; vis = true; }
       };
       const expand = () => ring.classList.add("cursor-expand");
       const shrink = () => ring.classList.remove("cursor-expand");

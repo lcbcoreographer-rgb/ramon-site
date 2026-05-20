@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36">
+  <!-- Index finger pointing up -->
+  <path d="M10 19 L10 4 Q10 1 13 1 Q16 1 16 4 L16 19" fill="white" stroke="#1a1a2e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Middle finger -->
+  <path d="M16 19 L16 8 Q16 5.5 18.5 5.5 Q21 5.5 21 8 L21 19" fill="white" stroke="#1a1a2e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Ring finger -->
+  <path d="M21 19 L21 11 Q21 9 23 9 Q25 9 25 11 L25 19" fill="white" stroke="#1a1a2e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Pinky -->
+  <path d="M25 19 L25 14 Q25 12 27 12 Q28 12 28 14 L28 19" fill="white" stroke="#1a1a2e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Palm -->
+  <path d="M10 19 L28 19 L28 27 Q28 35 20 35 L9 35 Q2 35 2 27 L2 24 Q2 21 4 20 Q6 19 10 19 Z" fill="white" stroke="#1a1a2e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Thumb -->
+  <path d="M2 24 Q0 23 0 21 Q0 18 3 18 L10 18" fill="white" stroke="#1a1a2e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Knuckle lines on index finger -->
+  <line x1="11" y1="9"  x2="15" y2="9"  stroke="#d0d8f0" stroke-width="1" stroke-linecap="round"/>
+  <line x1="11" y1="13" x2="15" y2="13" stroke="#d0d8f0" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -243,15 +243,14 @@ export default function Page() {
               {/* Glow de fundo */}
               <div style={{ position: "absolute", inset: -60, background: "radial-gradient(circle, rgba(26,110,255,.14) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-              {/* iPhone + sombra */}
-              <div className="float-phone-wrap" style={{ width: 280, height: 500 }}>
+              {/* iPhone 3D girando */}
+              <div style={{ width: 280, height: 500, position: "relative", display: "flex", alignItems: "center", justifyContent: "center", perspective: "900px" }}>
                 <img
                   src="/products/iphone-15-pro.png"
                   alt="iPhone 15 Pro"
-                  className="float-phone-img"
-                  style={{ height: "90%", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.22)) drop-shadow(0 8px 16px rgba(26,110,255,.12))" }}
+                  className="hero-phone-img"
                 />
-                <div className="float-phone-shadow" style={{ width: "50%", bottom: 14 }} />
+                <div className="hero-phone-shadow" />
               </div>
 
               {/* Badge: Frete grátis */}

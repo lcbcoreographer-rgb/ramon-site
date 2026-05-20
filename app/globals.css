@@ -343,6 +343,35 @@ body::after {
   0%,100% { transform: translateX(-50%) scale(1);    opacity: .28; }
   50%      { transform: translateX(-50%) scale(.62);  opacity: .10; }
 }
+
+/* ── Hero phone — 3D spin + float ───────────────────── */
+@keyframes phone-hero {
+  0%   { transform: translateY(0px)   rotateY(-18deg) rotateX(4deg);  }
+  25%  { transform: translateY(-12px) rotateY(0deg)   rotateX(1deg);  }
+  50%  { transform: translateY(-20px) rotateY(18deg)  rotateX(-4deg); }
+  75%  { transform: translateY(-12px) rotateY(0deg)   rotateX(1deg);  }
+  100% { transform: translateY(0px)   rotateY(-18deg) rotateX(4deg);  }
+}
+@keyframes hero-shadow {
+  0%,100% { transform: translateX(-50%) scale(1)   skewX(-6deg); opacity: .25; }
+  25%      { transform: translateX(-50%) scale(.8)  skewX(0deg);  opacity: .15; }
+  50%      { transform: translateX(-50%) scale(.65) skewX(6deg);  opacity: .10; }
+  75%      { transform: translateX(-50%) scale(.8)  skewX(0deg);  opacity: .15; }
+}
+.hero-phone-img {
+  height: 88%; width: auto; object-fit: contain;
+  animation: phone-hero 6s ease-in-out infinite;
+  filter: drop-shadow(0 28px 36px rgba(0,0,0,.2)) drop-shadow(0 6px 12px rgba(26,110,255,.1));
+  position: relative; z-index: 1;
+  transform-style: preserve-3d;
+}
+.hero-phone-shadow {
+  position: absolute; bottom: 8px; left: 50%;
+  width: 52%; height: 18px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,0,0,.3) 0%, transparent 70%);
+  animation: hero-shadow 6s ease-in-out infinite;
+  z-index: 0;
+}
 .float-phone-wrap {
   position: relative; width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;

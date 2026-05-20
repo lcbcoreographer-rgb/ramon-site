@@ -164,13 +164,13 @@ export default function Page() {
 
       {/* Background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,.016) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
-        <div className="orb-a" style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", background: "var(--blue)", filter: "blur(150px)", opacity: .07, top: -200, left: -150 }} />
-        <div className="orb-b" style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", background: "#0D4BC4", filter: "blur(130px)", opacity: .06, bottom: -100, right: -100 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(0,0,0,.04) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="orb-a" style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", background: "var(--blue)", filter: "blur(180px)", opacity: .05, top: -200, left: -150 }} />
+        <div className="orb-b" style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", background: "#0D4BC4", filter: "blur(150px)", opacity: .04, bottom: -100, right: -100 }} />
       </div>
 
       {/* ── NAV ─────────────────────────────────────────── */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(5,5,8,.8)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,.05)" }} className="nav-wrap">
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(244,246,255,.94)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(0,0,0,.07)" }} className="nav-wrap">
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 36, width: "auto", objectFit: "contain" }} />
         </div>
@@ -191,7 +191,7 @@ export default function Page() {
 
       {/* Mobile menu */}
       {mobileMenu && (
-        <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(5,5,8,.97)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,.06)", padding: "24px 24px 32px", display: "flex", flexDirection: "column", gap: 0 }}>
+        <div style={{ position: "fixed", top: 68, left: 0, right: 0, zIndex: 99, background: "rgba(244,246,255,.98)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(0,0,0,.07)", padding: "24px 24px 32px", display: "flex", flexDirection: "column", gap: 0 }}>
           {[["Produtos","#produtos"],["Categorias","#categorias"],["Diferenciais","#diferenciais"],["Sobre","#sobre"]].map(([l, h]) => (
             <a key={l} href={h} onClick={() => setMobileMenu(false)}
               style={{ fontSize: 16, fontWeight: 600, color: "var(--t2)", textDecoration: "none", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,.05)" }}>{l}</a>
@@ -302,7 +302,7 @@ export default function Page() {
       </section>
 
       {/* ── BRAND TICKER ────────────────────────────────── */}
-      <div style={{ background: "rgba(255,255,255,.012)", borderTop: "1px solid rgba(255,255,255,.04)", borderBottom: "1px solid rgba(255,255,255,.04)", padding: "18px 0", position: "relative", zIndex: 1 }}>
+      <div style={{ background: "rgba(0,0,0,.025)", borderTop: "1px solid rgba(0,0,0,.06)", borderBottom: "1px solid rgba(0,0,0,.06)", padding: "18px 0", position: "relative", zIndex: 1 }}>
         <div className="brand-ticker-wrap">
           <div className="brand-ticker-track">
             {[...BRANDS, ...BRANDS].map((b, i) => (
@@ -428,7 +428,7 @@ export default function Page() {
       {/* ── CTA WHATSAPP ────────────────────────────────── */}
       <section style={{ padding: "80px 24px 100px", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
-          <div className="reveal cta-box" style={{ background: "rgba(26,110,255,.05)", border: "1px solid rgba(26,110,255,.2)", position: "relative", overflow: "hidden" }}>
+          <div className="reveal cta-box" style={{ background: "rgba(26,110,255,.04)", border: "1px solid rgba(26,110,255,.15)", position: "relative", overflow: "hidden", boxShadow: "0 4px 40px rgba(26,110,255,.08)" }}>
             <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center top, rgba(26,110,255,.1) 0%, transparent 70%)", pointerEvents: "none" }} />
             <div className="badge" style={{ marginBottom: 24 }}>Fale com a gente</div>
             <h2 style={{ fontSize: "clamp(24px,5vw,44px)", fontWeight: 900, lineHeight: 1.1, marginBottom: 16 }}>

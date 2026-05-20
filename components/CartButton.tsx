@@ -23,12 +23,12 @@ export default function CartButton({ style }: { style?: React.CSSProperties }) {
         ...style,
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.background = "rgba(26,110,255,.15)";
-        e.currentTarget.style.borderColor = "rgba(26,110,255,.4)";
+        e.currentTarget.style.background = "rgba(26,110,255,.12)";
+        e.currentTarget.style.borderColor = "rgba(26,110,255,.35)";
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.background = "rgba(26,110,255,.08)";
-        e.currentTarget.style.borderColor = "rgba(26,110,255,.2)";
+        e.currentTarget.style.background = "rgba(26,110,255,.07)";
+        e.currentTarget.style.borderColor = "rgba(26,110,255,.18)";
       }}
     >
       🛒

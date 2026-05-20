@@ -18,8 +18,8 @@ export default function Navbar() {
     <>
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        background: "rgba(5,5,8,.88)", backdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(255,255,255,.05)",
+        background: "rgba(244,246,255,.94)", backdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(0,0,0,.07)",
       }} className="nav-wrap">
         <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 36, width: "auto", objectFit: "contain" }} />
@@ -51,13 +51,13 @@ export default function Navbar() {
       {mobileMenu && (
         <div style={{
           position: "fixed", top: 68, left: 0, right: 0, zIndex: 99,
-          background: "rgba(5,5,8,.97)", backdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(255,255,255,.06)",
+          background: "rgba(244,246,255,.98)", backdropFilter: "blur(20px)",
+          borderBottom: "1px solid rgba(0,0,0,.07)",
           padding: "24px 24px 32px", display: "flex", flexDirection: "column",
         }}>
           {NAV_LINKS.map(([label, href]) => (
             <Link key={label} href={href} onClick={() => setMobileMenu(false)}
-              style={{ fontSize: 16, fontWeight: 600, color: "var(--t2)", textDecoration: "none", padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,.05)" }}>
+              style={{ fontSize: 16, fontWeight: 600, color: "var(--t2)", textDecoration: "none", padding: "16px 0", borderBottom: "1px solid rgba(0,0,0,.06)" }}>
               {label}
             </Link>
           ))}

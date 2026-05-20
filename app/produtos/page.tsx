@@ -80,8 +80,8 @@ export default function ProdutosPage() {
       {/* Background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle,rgba(255,255,255,.016) 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
-        <div className="orb-a" style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "var(--blue)", filter: "blur(140px)", opacity: .06, top: -200, left: -100 }} />
-        <div className="orb-b" style={{ position: "absolute", width: 400, height: 400, borderRadius: "50%", background: "#0D4BC4", filter: "blur(120px)", opacity: .05, bottom: 200, right: -100 }} />
+        <div className="orb-a" style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "var(--blue)", filter: "blur(180px)", opacity: .04, top: -200, left: -100 }} />
+        <div className="orb-b" style={{ position: "absolute", width: 400, height: 400, borderRadius: "50%", background: "#0D4BC4", filter: "blur(150px)", opacity: .03, bottom: 200, right: -100 }} />
       </div>
 
       <Navbar />

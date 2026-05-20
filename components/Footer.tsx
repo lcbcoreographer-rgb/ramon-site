@@ -5,7 +5,7 @@ const IG_LINK = "https://instagram.com/ramon_acessorios";
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid rgba(255,255,255,.05)", padding: "40px 24px", position: "relative", zIndex: 1 }}>
+    <footer style={{ borderTop: "1px solid rgba(0,0,0,.07)", padding: "40px 24px", position: "relative", zIndex: 1, background: "var(--bg2)" }}>
       <div className="footer-flex">
         <div>
           <img src="/logo.png" alt="Ramon Acessórios" style={{ height: 32, width: "auto", objectFit: "contain", marginBottom: 10 }} />

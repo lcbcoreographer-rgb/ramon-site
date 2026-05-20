@@ -323,9 +323,9 @@ export default function Page() {
                 style={{ padding: 28, textDecoration: "none", display: "block", cursor: "pointer" }}
                 onMouseMove={tilt} onMouseLeave={resetTilt}>
                 <div style={{ fontSize: 36, marginBottom: 14 }}>{c.icon}</div>
-                <h3 style={{ fontSize: 17, fontWeight: 800, marginBottom: 8, color: "#fff" }}>{c.title}</h3>
-                <p style={{ fontSize: 13, color: "var(--t2)", lineHeight: 1.65, marginBottom: 16 }}>{c.desc}</p>
-                <span style={{ fontSize: 12, color: "var(--blue-lt)", fontWeight: 700 }}>Ver produtos →</span>
+                <h3 style={{ fontSize: 17, fontWeight: 800, marginBottom: 8, color: "#080A1A" }}>{c.title}</h3>
+                <p style={{ fontSize: 13, color: "#3E4060", lineHeight: 1.65, marginBottom: 16 }}>{c.desc}</p>
+                <span style={{ fontSize: 12, color: "#0D4BC4", fontWeight: 700 }}>Ver produtos →</span>
               </Link>
             ))}
           </div>

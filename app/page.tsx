@@ -382,7 +382,11 @@ export default function Page() {
       </section>
 
       {/* ── GRADIENTE TRANSIÇÃO branco → preto ─────────── */}
-      <div style={{ height: 220, background: "linear-gradient(to bottom, var(--bg) 0%, #0d0d18 60%, #080810 100%)", position: "relative", zIndex: 1 }} />
+      <div className="scan-transition" style={{ height: 220, background: "linear-gradient(to bottom, var(--bg) 0%, #0d0d18 60%, #080810 100%)", zIndex: 1 }}>
+        <div className="scan-dots" />
+        <div className="scan-glow-trail" />
+        <div className="scan-line" />
+      </div>
 
       {/* ── SOBRE + CTA + FOOTER (fundo preto) ─────────── */}
       <div style={{ background: "#080810", position: "relative", zIndex: 1 }}>

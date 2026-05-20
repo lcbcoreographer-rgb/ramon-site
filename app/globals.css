@@ -390,6 +390,45 @@ body::after {
   z-index: 0;
 }
 
+/* ── Scan transition ────────────────────────────────── */
+@keyframes scan-sweep {
+  0%   { transform: translateY(-2px);   opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 1; }
+  100% { transform: translateY(222px);  opacity: 0; }
+}
+@keyframes scan-glow-move {
+  0%   { transform: translateY(-40px);  opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 1; }
+  100% { transform: translateY(180px);  opacity: 0; }
+}
+@keyframes scan-dots-fade {
+  0%,100% { opacity: 0; }
+  30%,70% { opacity: 1; }
+}
+.scan-transition { position: relative; overflow: hidden; }
+.scan-line {
+  position: absolute; left: 0; right: 0; top: 0; height: 1.5px; z-index: 4;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(26,110,255,.3) 12%,
+    #4D92FF 35%, #90BAFF 50%,
+    #4D92FF 65%, rgba(26,110,255,.3) 88%, transparent 100%);
+  box-shadow: 0 0 10px rgba(77,146,255,.75), 0 0 24px rgba(26,110,255,.45), 0 0 48px rgba(26,110,255,.2);
+  animation: scan-sweep 4.5s cubic-bezier(.45,0,.55,1) infinite;
+}
+.scan-glow-trail {
+  position: absolute; left: 0; right: 0; top: 0; height: 70px; z-index: 3;
+  background: linear-gradient(to bottom, rgba(26,110,255,.07) 0%, transparent 100%);
+  animation: scan-glow-move 4.5s cubic-bezier(.45,0,.55,1) infinite;
+}
+.scan-dots {
+  position: absolute; inset: 0; z-index: 2;
+  background-image: radial-gradient(circle, rgba(26,110,255,.2) 1px, transparent 1px);
+  background-size: 28px 28px;
+  animation: scan-dots-fade 4.5s ease infinite;
+}
+
 /* ── Product no-image placeholder ───────────────────── */
 .product-no-img {
   width: 100%; height: 100%; display: flex; flex-direction: column;

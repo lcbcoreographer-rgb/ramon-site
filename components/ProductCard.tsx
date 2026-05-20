@@ -87,19 +87,19 @@ export default function ProductCard({ product: p, index = 0 }: Props) {
       {/* Info */}
       <div style={{ padding: "14px 16px 18px" }}>
         <Link href={`/produto/${p.slug}`} style={{ textDecoration: "none" }}>
-          <p style={{ fontSize: 10, color: "var(--blue)", fontWeight: 800, marginBottom: 4, letterSpacing: ".05em", textTransform: "uppercase" }}>{p.brand}</p>
-          <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--text)", lineHeight: 1.35, marginBottom: 10, minHeight: 36 }}>{p.name}</h3>
+          <p style={{ fontSize: 10, color: "#0D4BC4", fontWeight: 800, marginBottom: 4, letterSpacing: ".05em", textTransform: "uppercase" }}>{p.brand}</p>
+          <h3 style={{ fontSize: 14, fontWeight: 800, color: "#080A1A", lineHeight: 1.35, marginBottom: 10, minHeight: 36 }}>{p.name}</h3>
         </Link>
 
         <div style={{ marginBottom: 2 }}>
-          <span style={{ fontSize: 11, color: "var(--t3)" }}>No Pix </span>
-          <span style={{ fontSize: 16, fontWeight: 900, color: "var(--blue)" }}>{formatBRL(pix)}</span>
+          <span style={{ fontSize: 11, color: "#4A4C6A", fontWeight: 600 }}>No Pix </span>
+          <span style={{ fontSize: 16, fontWeight: 900, color: "#0D4BC4" }}>{formatBRL(pix)}</span>
         </div>
         {p.priceFrom && (
-          <div style={{ fontSize: 11, color: "var(--t3)", textDecoration: "line-through", marginBottom: 2 }}>{formatBRL(p.priceFrom)}</div>
+          <div style={{ fontSize: 11, color: "#6A6C8A", textDecoration: "line-through", marginBottom: 2 }}>{formatBRL(p.priceFrom)}</div>
         )}
-        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>{formatBRL(p.price)}</div>
-        {install && <div style={{ fontSize: 11, color: "var(--t2)" }}>{install} no cartão</div>}
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#080A1A", marginBottom: 4 }}>{formatBRL(p.price)}</div>
+        {install && <div style={{ fontSize: 11, color: "#3E4060", fontWeight: 600 }}>{install} no cartão</div>}
 
         <button
           onClick={() => p.stock > 0 && addItem(p)}
